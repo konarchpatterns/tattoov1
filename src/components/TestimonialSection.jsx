@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 const reviews = [
   {
@@ -48,6 +48,20 @@ const reviews = [
 ];
 
 const TestimonialSection = () => {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="tokiyo-reviews-wrapper">
       <section className="tokiyo-reviews-section container">
@@ -87,8 +101,8 @@ const TestimonialSection = () => {
             <p className="tr-happy-clients">THOUSANDS OF HAPPY CLIENTS.<br />ONE VIBE.</p>
             <p className="tr-hashtag text-red">#TOKIYOVIBE</p>
             <div className="tr-nav-arrows">
-              <button className="tr-arrow-btn black">←</button>
-              <button className="tr-arrow-btn white text-red">→</button>
+              <button className="tr-arrow-btn black" onClick={scrollLeft}>←</button>
+              <button className="tr-arrow-btn white text-red" onClick={scrollRight}>→</button>
             </div>
 
             {/* Far Right Sidebar Elements */}
@@ -107,7 +121,7 @@ const TestimonialSection = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="tr-cards-grid">
+        <div className="tr-cards-grid" ref={scrollRef}>
           {reviews.map(review => (
             <div key={review.id} className="tr-card">
 

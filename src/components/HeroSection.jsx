@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <div style={{ backgroundColor: '#ECECEC' }}>
-      <section className="hero-new container">
+    <div className="hero-wrapper" style={{ backgroundColor: '#ECECEC' }}>
+      <section className="hero-new container desktop-only">
         <div className="hero-banner-new" style={{ backgroundImage: "url('/images/tv_banner.png')" }}>
 
           <div className="hero-ticket">
@@ -56,20 +56,53 @@ const HeroSection = () => {
       </section>
 
       {/* Black Marquee Bar */}
-      <div className="shipping-bar">
+      <div className="shipping-bar desktop-only">
         <span>● Free Shipping on Order above $300</span>
         <span>● Free Shipping on Order above $300</span>
         <span>● Free Shipping on Order above $300</span>
         <span>● Free Shipping on Order above $300</span>
       </div>
 
-      <div className="hero-bottom-divider container">
+      <div className="hero-bottom-divider container desktop-only">
         <strong>TOKIYO <span className="text-red">VIBE</span></strong> /////////////////////////////// &nbsp;&nbsp;
         <span style={{ float: 'right' }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" style={{ marginRight: '10px' }}><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </span>
       </div>
+      {/* Mobile Hero Section */}
+      <section className="mobile-hero mobile-only">
+        <div className="mh-background" style={{ backgroundImage: "url('/images/mobile_hero_bg_new.jpg')" }}>
+          <div className="mh-overlay"></div>
+          
+          <div className="mh-content">
+            <div className="mh-vertical-text">
+              <span className="text-red">東京の魂</span><br/>
+              <span className="mh-jap-small">あなたの雰囲気を身に着ける</span>
+            </div>
+            
+            <div className="mh-main-text">
+              <h1 className="mh-title">
+                WEAR YOUR<br/>
+                <span className="mh-vibe text-red">VIBE</span>
+              </h1>
+              <p className="mh-desc">
+                PREMIUM TEMPORARY TATTOOS<br/>
+                INSPIRED BY TOKYO. MADE FOR YOU.
+              </p>
+              
+              <button className="mh-shop-btn">
+                SHOP NOW <span className="mh-arrow">→</span>
+              </button>
+            </div>
+            
+            <div className="mh-stamp">
+              <div className="mh-circle-stamp">東京</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

@@ -13,10 +13,19 @@ const categories = [
   { name: 'Finger Tattoo', img: '/images/cat_finger.png' }
 ];
 
+const mobileCategories = [
+  { name: 'JAPANESE', iconPath: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
+  { name: 'DRAGON', iconPath: 'M12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9' },
+  { name: 'SAMURAI', iconPath: 'M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z' },
+  { name: 'MINIMAL', iconPath: 'M12 20v-6M6 20V10M18 20V4' },
+  { name: 'ANIME', iconPath: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z' },
+];
+
 const CategoryGrid = () => {
   return (
-    <div style={{ backgroundColor: '#ECECEC' }}>
-      <section id="categories" className="categories-section container">
+    <div className="category-wrapper" style={{ backgroundColor: '#ECECEC' }}>
+      {/* Desktop View */}
+      <section id="categories" className="categories-section container desktop-only">
 
         <div className="category-header-wrapper">
 
@@ -93,6 +102,28 @@ const CategoryGrid = () => {
           ))}
         </div>
       </section>
+
+      {/* Mobile View */}
+      <section className="mobile-categories-section mobile-only">
+        <div className="mc-header">
+          <h2 className="mc-title">SHOP BY CATEGORY</h2>
+          <a href="#all" className="mc-view-all">VIEW ALL</a>
+        </div>
+        
+        <div className="mc-horizontal-scroll">
+          {mobileCategories.map((cat, idx) => (
+            <div key={idx} className="mc-item">
+              <div className="mc-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={cat.iconPath}></path>
+                </svg>
+              </div>
+              <span className="mc-item-name">{cat.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 };

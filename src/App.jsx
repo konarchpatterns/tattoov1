@@ -12,6 +12,10 @@ import TrustSection from './components/TrustSection'
 import TestimonialSection from './components/TestimonialSection'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import MobileBottomNav from './components/MobileBottomNav'
+import MobileFeaturesStrip from './components/MobileFeaturesStrip'
+import MobileBestSellers from './components/MobileBestSellers'
+import MadeInIndiaBanner from './components/MadeInIndiaBanner'
 import './index.css'
 
 function App() {
@@ -20,7 +24,10 @@ function App() {
       <Header />
       <main>
         <HeroSection />
+        <MobileFeaturesStrip />
         <CategoryGrid />
+        <MobileBestSellers />
+        <MadeInIndiaBanner />
         <ShopSection />
         <FeaturedCollections />
         <GenzCollections />
@@ -32,6 +39,7 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <MobileBottomNav />
     </div>
   )
 }
