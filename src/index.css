@@ -2793,8 +2793,10 @@ ul {
   align-items: center;
   color: #888;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 9px;
   gap: 4px;
+  flex: 1;
+  text-align: center;
 }
 .mobile-nav-item.active {
   color: #970C0F;
@@ -3179,7 +3181,7 @@ ul {
 
 @media (max-width: 768px) {
   .global-scroll-top-btn {
-    bottom: 80px !important;
+    display: none !important;
   }
 }
 
