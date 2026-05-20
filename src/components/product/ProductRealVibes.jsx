@@ -1,12 +1,42 @@
 import React from 'react';
 
-const ProductRealVibes = () => {
+const ProductRealVibes = ({ isMobile }) => {
   const images = [
     '/images/men.png',
     '/images/travel.jpg',
     '/images/women.png',
-    '/images/dragon.jpg'
+    '/images/dragon.jpg',
+    '/images/sc_samurai.png'
   ];
+
+  if (isMobile) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+          <div style={{ aspectRatio: '3/4' }}>
+            <img src={images[0]} alt="Gallery 1" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+          </div>
+          <div style={{ aspectRatio: '3/4' }}>
+            <img src={images[1]} alt="Gallery 2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+          </div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+          <div style={{ aspectRatio: '3/4' }}>
+            <img src={images[2]} alt="Gallery 3" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+          </div>
+          <div style={{ aspectRatio: '3/4' }}>
+            <img src={images[3]} alt="Gallery 4" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+          </div>
+          <div style={{ aspectRatio: '3/4' }}>
+            <img src={images[4]} alt="Gallery 5" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+          </div>
+        </div>
+        <button style={{ width: '100%', background: 'transparent', border: '1px solid #333', color: '#fff', padding: '15px', marginTop: '10px', fontSize: '10px', fontWeight: 'bold', letterSpacing: '1px', cursor: 'pointer' }}>
+          VIEW FULL GALLERY
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="pd-real-vibes-horizontal">
@@ -17,7 +47,7 @@ const ProductRealVibes = () => {
       </div>
       
       <div className="pd-vibes-right">
-        {images.map((img, idx) => (
+        {images.slice(0, 4).map((img, idx) => (
           <div key={idx} className="pd-vibe-item">
             <img src={img} alt={`Vibe ${idx}`} />
           </div>

@@ -1,11 +1,59 @@
 import React, { useState } from 'react';
 
-const ProductTryItOn = () => {
+const ProductTryItOn = ({ isMobile }) => {
   const [skinTone, setSkinTone] = useState('#E5C4A1');
   const [gender, setGender] = useState('M');
   const [placement, setPlacement] = useState('ARM');
 
   const skinTones = ['#F5D0B5', '#E5C4A1', '#C59A72', '#7D512D', '#3B2211'];
+  
+  if (isMobile) {
+    return (
+      <div style={{ backgroundColor: '#000', position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 2 }}>
+          {['ARM', 'NECK', 'CHEST', 'BACK', 'LEG'].map(p => (
+            <button
+              key={p}
+              onClick={() => setPlacement(p)}
+              style={{
+                display: 'block',
+                background: 'transparent',
+                border: placement === p ? '1px solid #cc0000' : '1px solid #333',
+                marginBottom: '10px',
+                width: '40px',
+                height: '50px',
+                borderRadius: '2px',
+                cursor: 'pointer'
+              }}
+            >
+              <img src={`/images/icon-${p.toLowerCase()}.svg`} alt={p} style={{ width: '20px', height: '20px', filter: placement === p ? 'none' : 'grayscale(1)' }} onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
+              <div style={{ color: placement === p ? '#cc0000' : '#888', fontSize: '8px', fontWeight: 'bold', marginTop: '2px' }}>{p}</div>
+            </button>
+          ))}
+        </div>
+        
+        <div style={{ width: '100%', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src="/images/dragon.jpg" alt="Preview" style={{ height: '100%', objectFit: 'contain' }} />
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #222' }}>
+          <div style={{ color: '#888', fontSize: '10px', fontWeight: 'bold' }}>SKIN TONE</div>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            {skinTones.map(color => (
+              <button
+                key={color}
+                style={{ width: '25px', height: '15px', border: skinTone === color ? '1px solid #fff' : 'none', backgroundColor: color, cursor: 'pointer' }}
+                onClick={() => setSkinTone(color)}
+              />
+            ))}
+          </div>
+        </div>
+        <div style={{ color: '#555', fontSize: '8px', textAlign: 'center', marginTop: '15px' }}>
+          * Preview may vary slightly from final look.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pd-try-on">
