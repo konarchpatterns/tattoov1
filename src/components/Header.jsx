@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,9 +18,9 @@ const Header = () => {
           {/* Left Navigation */}
           <div className="header-left">
             <nav className="desktop-only header-nav-links">
-              <a href="#home">Home</a>
-              <a href="#new-arrivals">New Arrivals</a>
-              <a href="#products">Products</a>
+              <Link to="/">Home</Link>
+              <Link to="/shop">Shop</Link>
+              <Link to="/shop">Products</Link>
               <a href="#about">About Us</a>
               <a href="#contact">Contact Us</a>
             </nav>
@@ -38,7 +39,9 @@ const Header = () => {
 
           {/* Center Logo */}
           <div className="header-center">
-            <img src="/images/tv_logo.png" alt="TOKIYO" className="logo-image" />
+            <Link to="/">
+              <img src="/images/tv_logo.png" alt="TOKIYO" className="logo-image" />
+            </Link>
           </div>
 
           {/* Right Navigation & Icons */}

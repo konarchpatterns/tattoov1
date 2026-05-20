@@ -1,47 +1,39 @@
-import React from 'react'
-import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import CategoryGrid from './components/CategoryGrid'
-import ShopSection from './components/ShopSection'
-import FeaturedCollections from './components/FeaturedCollections'
-import GenzCollections from './components/GenzCollections'
-import HotRightNow from './components/HotRightNow'
-import VibeFeedBlog from './components/VibeFeedBlog'
-import FAQSection from './components/FAQSection'
-import TrustSection from './components/TrustSection'
-import TestimonialSection from './components/TestimonialSection'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
-import MobileBottomNav from './components/MobileBottomNav'
-import MobileFeaturesStrip from './components/MobileFeaturesStrip'
-import MobileBestSellers from './components/MobileBestSellers'
-import MadeInIndiaBanner from './components/MadeInIndiaBanner'
-import './index.css'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import MobileBottomNav from './components/MobileBottomNav';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
+import ProductDetail from './pages/ProductDetail';
+import './index.css';
+
+const ScrollToTopOnMount = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <HeroSection />
-        <MobileFeaturesStrip />
-        <CategoryGrid />
-        <MobileBestSellers />
-        <MadeInIndiaBanner />
-        <ShopSection />
-        <FeaturedCollections />
-        <GenzCollections />
-        <HotRightNow />
-        <VibeFeedBlog />
-        <TrustSection />
-        <FAQSection />
-        <TestimonialSection />
-      </main>
-      <Footer />
-      <ScrollToTop />
-      <MobileBottomNav />
-    </div>
-  )
+    <Router>
+      <ScrollToTopOnMount />
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+        <Footer />
+        <ScrollToTop />
+        <MobileBottomNav />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
