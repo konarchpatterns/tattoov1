@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const relatedProducts = [
   { id: 1, name: 'Samurai Code', price: '499', img: '/images/sc_samurai.png', gallery: ['/images/sc_samurai.png', '/images/samurai.jpg', '/images/men.png'], badge: 'BEST SELLER' },
@@ -9,9 +10,14 @@ const relatedProducts = [
 ];
 
 const RelatedCard = ({ product }) => {
+  const navigate = useNavigate();
+
   return (
     <div style={{ width: '100%', minWidth: '0', height: '100%' }}>
-      <div style={{ height: '100%', backgroundColor: '#050505', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s', display: 'flex', flexDirection: 'column' }}>
+      <div 
+        onClick={() => navigate(`/product/${product.id}`)}
+        style={{ height: '100%', backgroundColor: '#050505', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s', display: 'flex', flexDirection: 'column' }}
+      >
         <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5' }}>
           <img src={product.gallery[1]} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           {product.badge && (
@@ -41,7 +47,10 @@ const RelatedCard = ({ product }) => {
               </div>
             </div>
             
-            <button style={{ background: 'transparent', border: '1px solid #333', borderRadius: '50%', width: '30px', height: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#fff', cursor: 'pointer', flexShrink: 0 }}>
+            <button 
+              onClick={(e) => e.stopPropagation()}
+              style={{ background: 'transparent', border: '1px solid #333', borderRadius: '50%', width: '30px', height: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#fff', cursor: 'pointer', flexShrink: 0 }}
+            >
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             </button>
           </div>
