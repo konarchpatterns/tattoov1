@@ -74,9 +74,9 @@ const Header = () => {
           </button>
         </div>
         <nav className="sidebar-nav-links">
-          <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <a href="#new-arrivals" onClick={() => setIsMobileMenuOpen(false)}>New Arrivals</a>
-          <a href="#products" onClick={() => setIsMobileMenuOpen(false)}>Products</a>
+          <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Shop</Link>
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About Us</a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
         </nav>
