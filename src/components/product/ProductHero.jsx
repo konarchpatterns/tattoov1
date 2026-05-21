@@ -105,13 +105,13 @@ const ProductHero = () => {
             <span style={{ color: '#fff', letterSpacing: '1px' }}>SIZE</span>
             <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#aaa', fontWeight: 'normal' }}>Size Guide</span>
           </div>
-          <div className="pd-size-btns">
+          <div className="pd-size-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             {['S', 'M', 'L'].map(s => (
               <button 
                 key={s}
                 className={`pd-size-btn ${size === s ? 'active' : ''}`}
                 onClick={() => setSize(s)}
-                style={{ backgroundColor: 'transparent', borderColor: size === s ? '#cc0000' : '#333', color: size === s ? '#cc0000' : '#888', flex: 1, padding: '12px 0' }}
+                style={{ backgroundColor: 'transparent', borderColor: size === s ? '#cc0000' : '#333', color: size === s ? '#cc0000' : '#888', flex: '1 1 25%', minWidth: '60px', padding: '12px 0' }}
               >
                 {s}
               </button>
@@ -124,13 +124,13 @@ const ProductHero = () => {
             <span style={{ color: '#fff', letterSpacing: '1px' }}>PLACEMENT</span>
             <span style={{ textDecoration: 'underline', cursor: 'pointer', color: '#aaa', fontWeight: 'normal' }}>See Preview</span>
           </div>
-          <div className="pd-placement-btns">
+          <div className="pd-placement-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             {[...placements, { id: 'LEG', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><path d="M10 2v20"/><path d="M14 2v20"/></svg> }].map(p => (
               <button 
                 key={p.id}
                 className={`pd-place-btn ${placement === p.id ? 'active' : ''}`}
                 onClick={() => setPlacement(p.id)}
-                style={{ backgroundColor: 'transparent', borderColor: placement === p.id ? '#cc0000' : '#333', color: placement === p.id ? '#cc0000' : '#888', flex: 1, padding: '10px 0', width: 'auto' }}
+                style={{ backgroundColor: 'transparent', borderColor: placement === p.id ? '#cc0000' : '#333', color: placement === p.id ? '#cc0000' : '#888', flex: '1 1 28%', minWidth: '70px', padding: '10px 0' }}
               >
                 {p.icon}
                 <span style={{ textTransform: 'capitalize' }}>{p.id.toLowerCase()}</span>

@@ -614,10 +614,12 @@
   
   .pd-action-btns {
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
   }
   .pd-add-to-cart, .pd-buy-now {
-    flex: 1;
+    flex: 1 1 45%;
+    min-width: 120px;
     font-size: 13px;
     padding: 12px 5px;
     justify-content: center;
