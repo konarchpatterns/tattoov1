@@ -611,4 +611,23 @@
   .pd-story { flex-direction: column; }
   .pd-story-img { height: 200px; }
   .pd-vibes-right { grid-template-columns: repeat(2, 1fr); }
+  
+  .pd-action-btns {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .pd-add-to-cart, .pd-buy-now {
+    flex: 1;
+    font-size: 13px;
+    padding: 12px 5px;
+    justify-content: center;
+  }
+  .pd-add-to-cart svg {
+    width: 16px;
+    height: 16px;
+  }
+  .pd-size-btn {
+    padding: 10px 0 !important;
+    font-size: 14px;
+  }
 }
